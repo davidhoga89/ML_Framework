@@ -6,7 +6,7 @@ if __name__ == "__main__":
     df["kfold"] = -1
     df = df.sample(frac=1).reset_index(drop=True)
 
-    kf = model_selection.StratifiedKFold(n_splits=5, shuffle=False, random_state=36)
+    kf = model_selection.StratifiedKFold(n_splits=5, shuffle=False, random_state=42)
 
     for fold, (train_idx, val_idx) in enumerate(kf.split(X=df, y=df.target.values)):
         print(len(train_idx), len(val_idx))
